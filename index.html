@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventory Dashboard MVP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background-blur"></div>
+    <main class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">Operations Toolkit</p>
+        <h1>Inventory Management Dashboard</h1>
+        <p class="hero-subtitle">
+          Monitoring stok produk secara real-time dari Supabase untuk mencegah
+          stockout dan overordering.
+        </p>
+      </header>
+
+      <section class="stats-grid" aria-label="Ringkasan stok">
+        <article class="stat-card">
+          <p class="stat-label">Total SKU</p>
+          <p class="stat-value" id="totalSku">-</p>
+        </article>
+        <article class="stat-card">
+          <p class="stat-label">Total Stok Unit</p>
+          <p class="stat-value" id="totalStock">-</p>
+        </article>
+        <article class="stat-card">
+          <p class="stat-label">Terakhir Diperbarui</p>
+          <p class="stat-value" id="latestUpdate">-</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Daftar Produk</h2>
+          <button id="refreshButton" type="button">Refresh Data</button>
+        </div>
+
+        <p
+          id="statusMessage"
+          class="status-message"
+          role="status"
+          aria-live="polite"
+        ></p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Nama Produk</th>
+                <th>Stok</th>
+                <th>Last Updated (WIB)</th>
+              </tr>
+            </thead>
+            <tbody id="inventoryBody">
+              <tr>
+                <td colspan="3" class="empty-state">Memuat data produk...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
